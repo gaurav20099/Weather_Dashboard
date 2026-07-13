@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="weather-app">
+    <!-- Animated cloud background -->
+    <div class="cloud-bg" aria-hidden="true">
+      <svg class="cloud cloud-1" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="55" rx="90" ry="25" fill="currentColor" /><ellipse cx="70" cy="45" rx="45" ry="30" fill="currentColor" /><ellipse cx="120" cy="40" rx="50" ry="35" fill="currentColor" /><ellipse cx="155" cy="50" rx="35" ry="22" fill="currentColor" /><ellipse cx="40" cy="52" rx="30" ry="20" fill="currentColor" />
+      </svg>
+      <svg class="cloud cloud-2" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="55" rx="90" ry="25" fill="currentColor" /><ellipse cx="70" cy="45" rx="45" ry="30" fill="currentColor" /><ellipse cx="120" cy="40" rx="50" ry="35" fill="currentColor" /><ellipse cx="155" cy="50" rx="35" ry="22" fill="currentColor" /><ellipse cx="40" cy="52" rx="30" ry="20" fill="currentColor" />
+      </svg>
+      <svg class="cloud cloud-3" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="55" rx="90" ry="25" fill="currentColor" /><ellipse cx="70" cy="45" rx="45" ry="30" fill="currentColor" /><ellipse cx="120" cy="40" rx="50" ry="35" fill="currentColor" /><ellipse cx="155" cy="50" rx="35" ry="22" fill="currentColor" /><ellipse cx="40" cy="52" rx="30" ry="20" fill="currentColor" />
+      </svg>
+      <svg class="cloud cloud-4" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="55" rx="90" ry="25" fill="currentColor" /><ellipse cx="70" cy="45" rx="45" ry="30" fill="currentColor" /><ellipse cx="120" cy="40" rx="50" ry="35" fill="currentColor" /><ellipse cx="155" cy="50" rx="35" ry="22" fill="currentColor" /><ellipse cx="40" cy="52" rx="30" ry="20" fill="currentColor" />
+      </svg>
+      <svg class="cloud cloud-5" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="55" rx="90" ry="25" fill="currentColor" /><ellipse cx="70" cy="45" rx="45" ry="30" fill="currentColor" /><ellipse cx="120" cy="40" rx="50" ry="35" fill="currentColor" /><ellipse cx="155" cy="50" rx="35" ry="22" fill="currentColor" /><ellipse cx="40" cy="52" rx="30" ry="20" fill="currentColor" />
+      </svg>
+      <svg class="cloud cloud-6" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="55" rx="90" ry="25" fill="currentColor" /><ellipse cx="70" cy="45" rx="45" ry="30" fill="currentColor" /><ellipse cx="120" cy="40" rx="50" ry="35" fill="currentColor" /><ellipse cx="155" cy="50" rx="35" ry="22" fill="currentColor" /><ellipse cx="40" cy="52" rx="30" ry="20" fill="currentColor" />
+      </svg>
+      <svg class="cloud cloud-7" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="55" rx="90" ry="25" fill="currentColor" /><ellipse cx="70" cy="45" rx="45" ry="30" fill="currentColor" /><ellipse cx="120" cy="40" rx="50" ry="35" fill="currentColor" /><ellipse cx="155" cy="50" rx="35" ry="22" fill="currentColor" /><ellipse cx="40" cy="52" rx="30" ry="20" fill="currentColor" />
+      </svg>
+      <svg class="cloud cloud-8" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="55" rx="90" ry="25" fill="currentColor" /><ellipse cx="70" cy="45" rx="45" ry="30" fill="currentColor" /><ellipse cx="120" cy="40" rx="50" ry="35" fill="currentColor" /><ellipse cx="155" cy="50" rx="35" ry="22" fill="currentColor" /><ellipse cx="40" cy="52" rx="30" ry="20" fill="currentColor" />
+      </svg>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+      <!-- Header -->
+      <header class="header">
+        <div>
+          <h1>Weather Dashboard</h1>
+          <p class="subtitle">Real-time weather data &amp; forecasts</p>
+        </div>
+        <div class="unit-toggle">
+          <button id="btn-c" class="unit-btn active" data-unit="C">°C</button>
+          <button id="btn-f" class="unit-btn" data-unit="F">°F</button>
+        </div>
+      </header>
+
+      <!-- Search -->
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
+        <input type="text" id="search-input" placeholder="Search city..." autocomplete="off" />
+        <button id="search-clear" class="search-clear" aria-label="Clear search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
+        </button>
+        <div id="search-results" class="search-results"></div>
+      </div>
+
+      <!-- Error banner -->
+      <div id="error-banner" class="error-banner hidden">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M12 8v4M12 16h.01" /></svg>
+        <span id="error-text"></span>
+      </div>
+
+      <!-- Loading -->
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Loading weather data...</p>
+      </div>
+
+      <!-- Weather container -->
+      <div id="weather-content" class="weather-content"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
